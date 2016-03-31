@@ -9,3 +9,5 @@ Your objective is to build a civilization that can defeat an empire in battle. T
 ## TODO
 * Rework graphics (use JavaFX?)
 * Add victory condition
+* Create better algorithm for calculating battle loses (higher relative strength -> fewer loses)
+* Add end-of-game statistics (total clicks, total buildings, time spent, etc)
