@@ -8,5 +8,4 @@ Your objective is to build a civilization that can defeat an empire in battle. T
 
 ## TODO
 * Rework graphics (use JavaFX?)
-* Give indication of enemy troop strength
 * Add victory condition
