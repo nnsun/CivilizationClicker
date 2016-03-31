@@ -298,11 +298,6 @@ public class Resources
 		culture = culture - x;
 	}
 	
-	
-	public void setUsedLand()
-	{
-		usedLand++;
-	}
 	public void setUsedLand(int x)
 	{
 		usedLand = usedLand + x;

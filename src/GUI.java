@@ -1,13 +1,10 @@
 import javax.swing.JOptionPane;
-
 import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -297,13 +294,21 @@ public class GUI extends JFrame
 		
 		//buttons for invasion
 		invadeOutpost = new JButton("Invade Outpost");
+		invadeOutpost.setToolTipText("Strength: " + Constants.OUTPOST_STRENGTH);
 		invadeTribe = new JButton("Invade Tribe");
+		invadeTribe.setToolTipText("Strength: " + Constants.TRIBE_STRENGTH);
 		invadeVillage = new JButton("Invade Village");
+		invadeVillage.setToolTipText("Strength: " + Constants.VILLAGE_STRENGTH);
 		invadeTown = new JButton("Invade Town");
+		invadeTown.setToolTipText("Strength: " + Constants.TOWN_STRENGTH);
 		invadeCity = new JButton("Invade City");
+		invadeCity.setToolTipText("Strength: " + Constants.CITY_STRENGTH);
 		invadeCityState = new JButton("Invade City-State");
+		invadeCityState.setToolTipText("Strength: " + Constants.CITY_STATE_STRENGTH);
 		invadeCountry = new JButton("Invade Country");
+		invadeCountry.setToolTipText("Strength: " + Constants.COUNTRY_STRENGTH);
 		invadeEmpire = new JButton("Invade Empire");
+		invadeEmpire.setToolTipText("Strength: " + Constants.EMPIRE_STRENGTH);
 		
 		//adds generic resource gathering components
 		add(gatherProduction);
@@ -590,705 +595,820 @@ public class GUI extends JFrame
 			//buttons added for techs, checks to see if prereqs are met
 			if(source == researchPottery)
 			{
-				if(objects.getScience() >= 30 && techs.getPottery() != true)
+				if(objects.getScience() >= Constants.TIER1_COST && techs.getPottery() != true)
 				{
-					objects.loseScience(30);
+					objects.loseScience(Constants.TIER1_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setPottery();
 					researchPottery.setText("Pottery researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 30 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER1_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchGuilds && techs.getGuilds() != true)
 			{
-				if(objects.getScience() >= 200)
+				if(objects.getScience() >= Constants.TIER2_COST)
 				{
-					objects.loseScience(200);
+					objects.loseScience(Constants.TIER2_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setGuilds();
 					researchGuilds.setText("Guilds researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 200 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER2_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchPrintingPress && techs.getPrintingPress() != true)
 			{
-				if(objects.getScience() >= 1000)
+				if(objects.getScience() >= Constants.TIER3_COST)
 				{
-					objects.loseScience(1000);
+					objects.loseScience(Constants.TIER3_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setPrintingPress();
 					researchPrintingPress.setText("Printing Press researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 1000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER3_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchElectricity && techs.getElectricity() != true)
 			{
-				if(objects.getScience() >= 5000)
+				if(objects.getScience() >= Constants.TIER4_COST)
 				{
-					objects.loseScience(5000);
+					objects.loseScience(Constants.TIER4_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setElectricity();
 					researchElectricity.setText("Electricity researched");	
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 5000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER4_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 
 			}
 			
 			if(source == researchAgriculture && techs.getAgriculture() != true)
 			{
-				if(objects.getScience() >= 30)
+				if(objects.getScience() >= Constants.TIER1_COST)
 				{
-					objects.loseScience(30);
+					objects.loseScience(Constants.TIER1_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setAgriculture();
 					researchAgriculture.setText("Agriculture researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 30 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER1_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchMathematics && techs.getMathematics() != true)
 			{
-				if(objects.getScience() >= 200)
+				if(objects.getScience() >= Constants.TIER2_COST)
 				{
-					objects.loseScience(200);
+					objects.loseScience(Constants.TIER2_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setMathematics();
 					researchMathematics.setText("Mathematics researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 200 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER2_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchChemistry && techs.getChemistry() != true)
 			{
-				if(objects.getScience() >= 1000)
+				if(objects.getScience() >= Constants.TIER3_COST)
 				{
-					objects.loseScience(1000);
+					objects.loseScience(Constants.TIER3_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setChemistry();
 					researchChemistry.setText("Chemistry researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 1000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER3_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchGenetics && techs.getGenetics() != true)
 			{
-				if(objects.getScience() >= 5000)
+				if(objects.getScience() >= Constants.TIER4_COST)
 				{
-					objects.loseScience(5000);
+					objects.loseScience(Constants.TIER4_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setGenetics();
 					researchGenetics.setText("Genetics researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 5000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER4_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			if(source == researchMining && techs.getMining() != true)
 			{
-				if(objects.getScience() >= 30)
+				if(objects.getScience() >= Constants.TIER1_COST)
 				{
-					objects.loseScience(30);
+					objects.loseScience(Constants.TIER1_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setMining();
 					researchMining.setText("Mining researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 30 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER1_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchIronWorking && techs.getIronWorking() != true)
 			{
-				if(objects.getScience() >= 200)
+				if(objects.getScience() >= Constants.TIER2_COST)
 				{
-					objects.loseScience(200);
+					objects.loseScience(Constants.TIER2_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setIronWorking();
 					researchIronWorking.setText("Iron Working researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 200 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER2_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchSteamPower && techs.getSteamPower() != true)
 			{
-				if(objects.getScience() >= 1000)
+				if(objects.getScience() >= Constants.TIER3_COST)
 				{
-					objects.loseScience(1000);
+					objects.loseScience(Constants.TIER3_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setSteamPower();
 					researchSteamPower.setText("Steam Power researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 1000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER3_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchFission && techs.getFission() != true)
 			{
-				if(objects.getScience() >= 5000)
+				if(objects.getScience() >= Constants.TIER4_COST)
 				{
-					objects.loseScience(5000);
+					objects.loseScience(Constants.TIER4_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setFission();
 					researchFission.setText("Fission researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 5000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER4_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			if(source == researchWriting && techs.getWriting() != true)
 			{
-				if(objects.getScience() >= 30)
+				if(objects.getScience() >= Constants.TIER1_COST)
 				{
-					objects.loseScience(30);
+					objects.loseScience(Constants.TIER1_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setWriting();
 					researchWriting.setText("Writing researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 30 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER1_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchPaper && techs.getPaper() != true)
 			{
-				if(objects.getScience() >= 200)
+				if(objects.getScience() >= Constants.TIER2_COST)
 				{
-					objects.loseScience(200);
+					objects.loseScience(Constants.TIER2_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setPaper();
 					researchPaper.setText("Paper researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 200 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER2_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchEducation && techs.getEducation() != true)
 			{
-				if(objects.getScience() >= 1000)
+				if(objects.getScience() >= Constants.TIER3_COST)
 				{
-					objects.loseScience(1000);
+					objects.loseScience(Constants.TIER3_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setEducation();
 					researchEducation.setText("Education researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 1000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER3_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchScientificMethod && techs.getScientificMethod() != true)
 			{
-				if(objects.getScience() >= 5000)
+				if(objects.getScience() >= Constants.TIER4_COST)
 				{
-					objects.loseScience(5000);
+					objects.loseScience(Constants.TIER4_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setScientificMethod();
 					researchScientificMethod.setText("Scientific Method researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 5000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER4_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			if(source == researchMasonry && techs.getMasonry() != true)
 			{
-				if(objects.getScience() >= 30)
+				if(objects.getScience() >= Constants.TIER1_COST)
 				{
-					objects.loseScience(30);
+					objects.loseScience(Constants.TIER1_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setMasonry();
 					researchMasonry.setText("Masonry researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 30 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER1_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchPhilosophy && techs.getPhilosophy() != true)
 			{
-				if(objects.getScience() >= 200)
+				if(objects.getScience() >= Constants.TIER2_COST)
 				{
-					objects.loseScience(200);
+					objects.loseScience(Constants.TIER2_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setPhilosophy();
 					researchPhilosophy.setText("Philosophy researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 200 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER2_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchDrama && techs.getDrama() != true)
 			{
-				if(objects.getScience() >= 1000)
+				if(objects.getScience() >= Constants.TIER3_COST)
 				{
-					objects.loseScience(1000);
+					objects.loseScience(Constants.TIER3_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setDrama();
 					researchDrama.setText("Drama researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 1000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER3_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchRadio && techs.getRadio() != true)
 				
 			{
-				if(objects.getScience() >= 5000)
+				if(objects.getScience() >= Constants.TIER4_COST)
 				{
-					objects.loseScience(5000);
+					objects.loseScience(Constants.TIER4_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setRadio();
 					researchRadio.setText("Radio researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 5000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " +Constants.TIER4_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			if(source == researchMetalCasting && techs.getMetalCasting() != true)
 			{
-				if(objects.getScience() >= 30)
+				if(objects.getScience() >= Constants.TIER1_COST)
 				{
-					objects.loseScience(30);
+					objects.loseScience(Constants.TIER1_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setMetalCasting();
 					researchMetalCasting.setText("Metal Casting researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 30 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER1_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchChivalry && techs.getChivalry() != true)
 			{
-				if(objects.getScience() >= 200)
+				if(objects.getScience() >= Constants.TIER2_COST)
 				{
-					objects.loseScience(200);
+					objects.loseScience(Constants.TIER2_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setChivalry();
 					researchChivalry.setText("Chivalry researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 200 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER2_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchGunpowder && techs.getGunpowder() != true)
 			{
-				if(objects.getScience() >= 1000)
+				if(objects.getScience() >= Constants.TIER3_COST)
 				{
-					objects.loseScience(1000);
+					objects.loseScience(Constants.TIER3_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setGunpowder();
 					researchGunpowder.setText("Gunpowder researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 1000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER3_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == researchIndustrialization && techs.getIndustrialization() != true)
 			{
-				if(objects.getScience() >= 5000)
+				if(objects.getScience() >= Constants.TIER4_COST)
 				{
-					objects.loseScience(5000);
+					objects.loseScience(Constants.TIER4_COST);
 					science.setText("Science: " + objects.getScience());
 					techs.setIndustrialization();
 					researchIndustrialization.setText("Industrialization researched");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need 5000 Science to research this tech.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need " + Constants.TIER4_COST + " Science to research this tech.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			
 			//buttons for buildings 
 			if(source == buildCottage)
 			{
-				if(techs.getPottery() && objects.getProduction() >= 25 && objects.getGold() >= 15 && objects.getFood() >= 10)
+				if(techs.getPottery() && objects.getProduction() >= Constants.COTTAGE_PRODUCTION_COST && 
+						objects.getGold() >= Constants.COTTAGE_GOLD_COST && objects.getFood() >= Constants.COTTAGE_FOOD_COST)
 				{
-					if(objects.getUsedLand() < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER1_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(25);
-						objects.loseGold(15);
-						objects.loseFood(10);
+						objects.loseProduction(Constants.COTTAGE_PRODUCTION_COST);
+						objects.loseGold(Constants.COTTAGE_GOLD_COST);
+						objects.loseFood(Constants.COTTAGE_FOOD_COST);
 						objects.setCottages();
 						totalCottages.setText("Cottages: " + objects.getCottages());
-						objects.setUsedLand();
+						objects.setUsedLand(Constants.TIER1_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", 
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Pottery, 25 Production, 15 Gold, and 10 Food to build a Cottage.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Pottery, " + Constants.COTTAGE_PRODUCTION_COST + 
+							" Production, " + Constants.COTTAGE_GOLD_COST + " Gold, and " + Constants.COTTAGE_FOOD_COST + " Food to build a Cottage.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildHamlet)
 			{
-				if(techs.getGuilds() && objects.getProduction() >= 100 && objects.getGold() >= 60 && objects.getFood() >= 40)
+				if(techs.getGuilds() && objects.getProduction() >= Constants.HAMLET_PRODUCTION_COST
+						&& objects.getGold() >= Constants.HAMLET_GOLD_COST && objects.getFood() >= Constants.HAMLET_FOOD_COST)
 				{
-					if(objects.getUsedLand() < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER2_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(100);
-						objects.loseGold(60);
-						objects.loseFood(40);
+						objects.loseProduction(Constants.HAMLET_PRODUCTION_COST);
+						objects.loseGold(Constants.HAMLET_GOLD_COST);
+						objects.loseFood(Constants.HAMLET_FOOD_COST);
 						objects.setHamlets();
 						totalHamlets.setText("Hamlets: " + objects.getHamlets());
-						objects.setUsedLand(3);
+						objects.setUsedLand(Constants.TIER2_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", 
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Guilds, 100 Production, 60 Gold, and 40 Food to build a Hamlet.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Guilds, " + Constants.HAMLET_PRODUCTION_COST + 
+							" Production, " + Constants.HAMLET_GOLD_COST + " Gold, and " + Constants.HAMLET_FOOD_COST + " Food to build a Hamlet.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildVillage)
 			{
-				if(techs.getPrintingPress() && objects.getProduction() >= 500 && objects.getGold() >= 300 && objects.getFood() >= 200)
+				if(techs.getPrintingPress() && objects.getProduction() >= Constants.VILLAGE_PRODUCTION_COST
+						&& objects.getGold() >= Constants.VILLAGE_GOLD_COST && objects.getFood() >= Constants.VILLAGE_FOOD_COST)
 				{
-					if(objects.getUsedLand() < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER3_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(500);
-						objects.loseGold(300);
-						objects.loseFood(200);
+						objects.loseProduction(Constants.VILLAGE_PRODUCTION_COST);
+						objects.loseGold(Constants.VILLAGE_GOLD_COST);
+						objects.loseFood(Constants.VILLAGE_FOOD_COST);
 						objects.setVillages();
 						totalVillages.setText("Villages: " + objects.getVillages());
-						objects.setUsedLand(5);
+						objects.setUsedLand(Constants.TIER3_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", 
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Printing Press, 500 Production, 300 Gold, and 200 Food to build a Village.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Printing Press, " + Constants.VILLAGE_PRODUCTION_COST + 
+							" Production, " + Constants.VILLAGE_GOLD_COST + " Gold, and " + Constants.VILLAGE_FOOD_COST + " Food to build a Village.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildTown)
 			{
-				if(techs.getElectricity() && objects.getProduction() >= 2000 && objects.getGold() >= 1200 && objects.getFood() >= 800)
+				if(techs.getElectricity() && objects.getProduction() >= Constants.TOWN_PRODUCTION_COST
+						&& objects.getGold() >= Constants.TOWN_GOLD_COST && objects.getFood() >= Constants.TOWN_FOOD_COST)
 				{
-					if(objects.getUsedLand() < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER4_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(2000);
-						objects.loseGold(1200);
-						objects.loseFood(800);
+						objects.loseProduction(Constants.TOWN_PRODUCTION_COST);
+						objects.loseGold(Constants.TOWN_GOLD_COST);
+						objects.loseFood(Constants.TOWN_FOOD_COST);
 						objects.setTowns();
 						totalTowns.setText("Towns: " + objects.getTowns());
-						objects.setUsedLand(10);
+						objects.setUsedLand(Constants.TIER4_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", 
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Electricity, 2000 Production, 1200 Gold, and 800 Food to build a Town.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Electricity, " + Constants.TOWN_PRODUCTION_COST + 
+							" Production, " + Constants.TOWN_GOLD_COST + " Gold, and " + Constants.TOWN_FOOD_COST + " Food to build a Town.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			if(source == buildFarm)
 			{
-				if(techs.getAgriculture() && objects.getProduction() >= 20 && objects.getGold() >= 10 && objects.getFood() >= 20)
+				if(techs.getAgriculture() && objects.getProduction() >= Constants.FARM_PRODUCTION_COST
+						&& objects.getGold() >= Constants.FARM_GOLD_COST && objects.getFood() >= Constants.FARM_FOOD_COST)
 				{
-					if(objects.getUsedLand() < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER1_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(20);
-						objects.loseGold(10);
-						objects.loseFood(20);
+						objects.loseProduction(Constants.FARM_PRODUCTION_COST);
+						objects.loseGold(Constants.FARM_GOLD_COST);
+						objects.loseFood(Constants.FARM_FOOD_COST);
 						objects.setFarms();
 						totalFarms.setText("Farms: " + objects.getFarms());
-						objects.setUsedLand();
+						objects.setUsedLand(Constants.TIER1_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Agriculture, 20 Production, 10 Gold, and 20 Food to build a Farm.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Agriculture, " + Constants.FARM_PRODUCTION_COST + 
+							" Production, " + Constants.FARM_GOLD_COST + " Gold, and " + Constants.FARM_FOOD_COST + " Food to build a Farm.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildIrrigatedFarm)
 			{
-				if(techs.getMathematics() && objects.getProduction() >= 80 && objects.getGold() >= 40 && objects.getFood() >= 80)
+				if(techs.getMathematics() && objects.getProduction() >= Constants.IRRIGATED_FARM_PRODUCTION_COST
+						&& objects.getGold() >= Constants.IRRIGATED_FARM_GOLD_COST && objects.getFood() >= Constants.IRRIGATED_FARM_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 2 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER2_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(80);
-						objects.loseGold(40);
-						objects.loseFood(80);
+						objects.loseProduction(Constants.IRRIGATED_FARM_PRODUCTION_COST);
+						objects.loseGold(Constants.IRRIGATED_FARM_GOLD_COST);
+						objects.loseFood(Constants.IRRIGATED_FARM_FOOD_COST);
 						objects.setIrrigatedFarms();
 						totalIrrigatedFarms.setText("Irrigated Farms: " + objects.getIrrigatedFarms());
-						objects.setUsedLand(3);
+						objects.setUsedLand(Constants.TIER2_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Mathematics, 80 Production, 40 Gold, and 80 Food to build an Irrigated Farm.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Mathematics, " + Constants.IRRIGATED_FARM_PRODUCTION_COST + 
+							" Production, " + Constants.IRRIGATED_FARM_GOLD_COST + " Gold, and " + Constants.IRRIGATED_FARM_FOOD_COST + 
+							" Food to build an Irrigated Farm.",
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildFertilizedFarm)
 			{
-				if(techs.getChemistry() && objects.getProduction() >= 400 && objects.getGold() >= 200 && objects.getFood() >= 400)
+				if(techs.getChemistry() && objects.getProduction() >= Constants.FERTILIZED_FARM_PRODUCTION_COST
+						&& objects.getGold() >= Constants.FERTILIZED_FARM_GOLD_COST && objects.getFood() >= Constants.FERTILIZED_FARM_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 4 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER3_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(400);
-						objects.loseGold(200);
-						objects.loseFood(400);
+						objects.loseProduction(Constants.FERTILIZED_FARM_PRODUCTION_COST);
+						objects.loseGold(Constants.FERTILIZED_FARM_GOLD_COST);
+						objects.loseFood(Constants.FERTILIZED_FARM_FOOD_COST);
 						objects.setFertilizedFarms();
 						totalFertilizedFarms.setText("Fertilized Farms: " + objects.getFertilizedFarms());
-						objects.setUsedLand(5);
+						objects.setUsedLand(Constants.TIER3_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Chemistry, 400 Production, 200 Gold, and 400 Food to build a Fertilized Farm.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Chemistry, " + Constants.FERTILIZED_FARM_PRODUCTION_COST + 
+							" Production, " + Constants.FERTILIZED_FARM_GOLD_COST + " Gold, and " + Constants.FERTILIZED_FARM_FOOD_COST + 
+							" Food to build a Fertilized Farm.",
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildGMcropFarm)
 			{
-				if(techs.getGenetics() && objects.getProduction() >= 1600 && objects.getGold() >= 800 && objects.getFood() >= 1600)
+				if(techs.getGenetics() && objects.getProduction() >= Constants.GM_CROP_FARM_PRODUCTION_COST
+						&& objects.getGold() >= Constants.GM_CROP_FARM_GOLD_COST && objects.getFood() >= Constants.GM_CROP_FARM_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 9 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER4_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(1600);
-						objects.loseGold(800);
-						objects.loseFood(1600);
+						objects.loseProduction(Constants.GM_CROP_FARM_PRODUCTION_COST);
+						objects.loseGold(Constants.GM_CROP_FARM_GOLD_COST);
+						objects.loseFood(Constants.GM_CROP_FARM_FOOD_COST);
 						objects.setGMcropFarms();
 						totalGMcropFarms.setText("GM Crop Farms: " + objects.getGMcropFarms());
-						objects.setUsedLand(10);
+						objects.setUsedLand(Constants.TIER4_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Genetics, 1600 Production, 800 Gold, and 1600 Food to build a Genetically Modified Crop Farm.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Genetics, " + Constants.GM_CROP_FARM_PRODUCTION_COST + 
+							" Production, " + Constants.GM_CROP_FARM_GOLD_COST + " Gold, and " + Constants.GM_CROP_FARM_FOOD_COST + 
+							" Food to build a Genetically Modified Crop Farm.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			if(source == buildMine)
 			{
-				if(techs.getMining() && objects.getProduction() >= 35 && objects.getGold() >= 10 && objects.getFood() >= 5)
+				if(techs.getMining() && objects.getProduction() >= Constants.MINE_PRODUCTION_COST
+						&& objects.getGold() >= Constants.MINE_GOLD_COST && objects.getFood() >= Constants.MINE_FOOD_COST)
 				{
-					if(objects.getUsedLand() < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER1_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(35);
-						objects.loseGold(10);
-						objects.loseFood(5);
+						objects.loseProduction(Constants.MINE_PRODUCTION_COST);
+						objects.loseGold(Constants.MINE_GOLD_COST);
+						objects.loseFood(Constants.MINE_FOOD_COST);
 						objects.setMines();
 						totalMines.setText("Mines: " + objects.getMines());
-						objects.setUsedLand();
+						objects.setUsedLand(Constants.TIER1_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Mining, 35 Production, 10 Gold, and 5 Food to build a Mine.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Mining, " + Constants.MINE_PRODUCTION_COST + 
+							" Production, " + Constants.MINE_GOLD_COST + " Gold, and " + Constants.MINE_FOOD_COST + " Food to build a Mine.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildIronMine)
 			{
-				if(techs.getIronWorking() && objects.getProduction() >= 140 && objects.getGold() >= 40 && objects.getFood() >= 20)
+				if(techs.getIronWorking() && objects.getProduction() >= Constants.IRON_MINE_PRODUCTION_COST
+						&& objects.getGold() >= Constants.IRON_MINE_GOLD_COST && objects.getFood() >= Constants.IRON_MINE_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 2 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER2_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(140);
-						objects.loseGold(40);
-						objects.loseFood(20);
+						objects.loseProduction(Constants.IRON_MINE_PRODUCTION_COST);
+						objects.loseGold(Constants.IRON_MINE_GOLD_COST);
+						objects.loseFood(Constants.IRON_MINE_FOOD_COST);
 						objects.setIronMines();
 						totalIronMines.setText("Iron Mines: " + objects.getIronMines());
-						objects.setUsedLand(3);
+						objects.setUsedLand(Constants.TIER2_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Iron Working, 140 Production, 40 Gold, and 20 Food to build a Iron Mine.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Iron Working, " + Constants.IRON_MINE_PRODUCTION_COST + 
+							" Production, " + Constants.IRON_MINE_GOLD_COST + " Gold, and " + Constants.IRON_MINE_FOOD_COST + 
+							" Food to build a Iron Mine.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildCoalMine)
 			{
-				if(techs.getSteamPower() && objects.getProduction() >= 700 && objects.getGold() >= 200 && objects.getFood() >= 100)
+				if(techs.getSteamPower() && objects.getProduction() >= Constants.COAL_MINE_PRODUCTION_COST
+						&& objects.getGold() >= Constants.COAL_MINE_GOLD_COST && objects.getFood() >= Constants.COAL_MINE_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 4 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER3_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(700);
-						objects.loseGold(200);
-						objects.loseFood(100);
+						objects.loseProduction(Constants.COAL_MINE_PRODUCTION_COST);
+						objects.loseGold(Constants.COAL_MINE_GOLD_COST);
+						objects.loseFood(Constants.COAL_MINE_FOOD_COST);
 						objects.setCoalMines();
 						totalCoalMines.setText("Coal Mines: " + objects.getCoalMines());
-						objects.setUsedLand(5);
+						objects.setUsedLand(Constants.TIER3_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Steam Power, 700 Production, 200 Gold, and 100 Food to build a Coal Mine.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Steam Power, " + Constants.COAL_MINE_PRODUCTION_COST + 
+							" Production, " + Constants.COAL_MINE_GOLD_COST + " Gold, and " + Constants.COAL_MINE_FOOD_COST + 
+							" Food to build a Coal Mine.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildUraniumMine)
 			{
-				if(techs.getFission() && objects.getProduction() >= 2800 && objects.getGold() >= 800 && objects.getFood() >= 400)
+				if(techs.getFission() && objects.getProduction() >= Constants.URANIUM_MINE_PRODUCTION_COST
+						&& objects.getGold() >= Constants.URANIUM_MINE_GOLD_COST && objects.getFood() >= Constants.URANIUM_MINE_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 9 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER4_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(2800);
-						objects.loseGold(800);
-						objects.loseFood(400);
+						objects.loseProduction(Constants.URANIUM_MINE_PRODUCTION_COST);
+						objects.loseGold(Constants.URANIUM_MINE_GOLD_COST);
+						objects.loseFood(Constants.URANIUM_MINE_FOOD_COST);
 						objects.setUraniumMines();
 						totalUraniumMines.setText("Uranium Mines: " + objects.getUraniumMines());
-						objects.setUsedLand(10);
+						objects.setUsedLand(Constants.TIER4_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Fission, 2800 Production, 800 Gold, and 400 Food to build a Uranium Mine.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Fission, " + Constants.URANIUM_MINE_PRODUCTION_COST + 
+							" Production, " + Constants.URANIUM_MINE_GOLD_COST + " Gold, and " + Constants.URANIUM_MINE_FOOD_COST + 
+							" Food to build a Uranium Mine.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			if(source == buildLibrary)
 			{
-				if(techs.getWriting() && objects.getProduction() >= 15 && objects.getGold() >= 20 && objects.getFood() >= 15)
+				if(techs.getWriting() && objects.getProduction() >= Constants.LIBRARY_PRODUCTION_COST 
+						&& objects.getGold() >= Constants.LIBRARY_GOLD_COST && objects.getFood() >= Constants.LIBRARY_FOOD_COST)
 				{
-					if(objects.getUsedLand() < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER1_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(15);
-						objects.loseGold(20);
-						objects.loseFood(15);
+						objects.loseProduction(Constants.LIBRARY_PRODUCTION_COST);
+						objects.loseGold(Constants.LIBRARY_GOLD_COST);
+						objects.loseFood(Constants.LIBRARY_FOOD_COST);
 						objects.setLibraries();
 						totalLibraries.setText("Libraries: " + objects.getLibraries());
-						objects.setUsedLand();
+						objects.setUsedLand(Constants.TIER1_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Writing, 15 Production, 20 Gold, and 15 Food to build a Library.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Writing, " + Constants.LIBRARY_PRODUCTION_COST + 
+							" Production, " + Constants.LIBRARY_GOLD_COST + " Gold, and " + Constants.LIBRARY_FOOD_COST + " Food to build a Library.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildUniversity)
 			{
-				if(techs.getPaper() && objects.getProduction() >= 60 && objects.getGold() >= 80 && objects.getFood() >= 60)
+				if(techs.getPaper() && objects.getProduction() >= Constants.UNIVERSITY_PRODUCTION_COST
+						&& objects.getGold() >= Constants.UNIVERSITY_GOLD_COST && objects.getFood() >= Constants.UNIVERSITY_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 2 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER2_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(60);
-						objects.loseGold(80);
-						objects.loseFood(60);
+						objects.loseProduction(Constants.UNIVERSITY_PRODUCTION_COST);
+						objects.loseGold(Constants.UNIVERSITY_GOLD_COST);
+						objects.loseFood(Constants.UNIVERSITY_FOOD_COST);
 						objects.setUniversities();
 						totalUniversities.setText("Universities: " + objects.getUniversities());
-						objects.setUsedLand(3);
+						objects.setUsedLand(Constants.TIER2_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Paper, 60 Production, 80 Gold, and 60 Food to build a University.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Paper, " + Constants.UNIVERSITY_PRODUCTION_COST + 
+							" Production, " + Constants.UNIVERSITY_GOLD_COST + " Gold, and " + Constants.UNIVERSITY_FOOD_COST + 
+							" Food to build a University.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildPublicSchool)
 			{
-				if(techs.getEducation() && objects.getProduction() >= 300 && objects.getGold() >= 400 && objects.getFood() >= 300)
+				if(techs.getEducation() && objects.getProduction() >= Constants.PUBLIC_SCHOOL_PRODUCTION_COST
+						&& objects.getGold() >= Constants.PUBLIC_SCHOOL_GOLD_COST && objects.getFood() >= Constants.PUBLIC_SCHOOL_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 4 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER3_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(300);
-						objects.loseGold(400);
-						objects.loseFood(300);
+						objects.loseProduction(Constants.PUBLIC_SCHOOL_PRODUCTION_COST);
+						objects.loseGold(Constants.PUBLIC_SCHOOL_GOLD_COST);
+						objects.loseFood(Constants.PUBLIC_SCHOOL_FOOD_COST);
 						objects.setPublicSchools();
 						totalPublicSchools.setText("Public Schools: " + objects.getPublicSchools());
-						objects.setUsedLand(5);
+						objects.setUsedLand(Constants.TIER3_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Education, 300 Production, 400 Gold, and 300 Food to build a Public School.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Education, " + Constants.PUBLIC_SCHOOL_PRODUCTION_COST + 
+							" Production, " + Constants.PUBLIC_SCHOOL_GOLD_COST + " Gold, and " + Constants.PUBLIC_SCHOOL_FOOD_COST + 
+							" Food to build a Public School.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildResearchLab)
 			{
-				if(techs.getScientificMethod() && objects.getProduction() >= 1200 && objects.getGold() >= 1600 && objects.getFood() >= 1200)
+				if(techs.getScientificMethod() && objects.getProduction() >= Constants.RESEARCH_LAB_PRODUCTION_COST
+						&& objects.getGold() >= Constants.RESEARCH_LAB_GOLD_COST && objects.getFood() >= Constants.RESEARCH_LAB_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 9 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER4_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(1200);
-						objects.loseGold(1600);
-						objects.loseFood(1200);
+						objects.loseProduction(Constants.RESEARCH_LAB_PRODUCTION_COST);
+						objects.loseGold(Constants.RESEARCH_LAB_GOLD_COST);
+						objects.loseFood(Constants.RESEARCH_LAB_FOOD_COST);
 						objects.setResearchLabs();
 						totalResearchLabs.setText("Research Labs: " + objects.getResearchLabs());
-						objects.setUsedLand(10);
+						objects.setUsedLand(Constants.TIER4_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Scientific Method, 1200 Production, 1600 Gold, and 1200 Food to build a Research Lab.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Scientific Method, " + Constants.RESEARCH_LAB_PRODUCTION_COST + 
+							" Production, " + Constants.RESEARCH_LAB_GOLD_COST + " Gold, and " + Constants.RESEARCH_LAB_FOOD_COST + 
+							" Food to build a Research Lab.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			if(source == buildMonument)
 			{
-				if(techs.getMasonry() && objects.getProduction() >= 20 && objects.getGold() >= 20 && objects.getFood() >= 10)
+				if(techs.getMasonry() && objects.getProduction() >= Constants.MONUMENT_PRODUCTION_COST
+						&& objects.getGold() >= Constants.MONUMENT_GOLD_COST && objects.getFood() >= Constants.MONUMENT_FOOD_COST)
 				{
-					if(objects.getUsedLand() < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER1_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(20);
-						objects.loseGold(20);
-						objects.loseFood(10);
+						objects.loseProduction(Constants.MONUMENT_PRODUCTION_COST);
+						objects.loseGold(Constants.MONUMENT_GOLD_COST);
+						objects.loseFood(Constants.MONUMENT_FOOD_COST);
 						objects.setMonuments();
 						totalMonuments.setText("Monuments: " + objects.getMonuments());
-						objects.setUsedLand();
+						objects.setUsedLand(Constants.TIER1_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Masonry, 20 Production, 20 Gold, and 10 Food to build a Monument.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Masonry, " + Constants.MONUMENT_PRODUCTION_COST + 
+							" Production, " + Constants.MONUMENT_GOLD_COST + " Gold, and " + Constants.MONUMENT_FOOD_COST + " Food to build a Monument.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildMonastery)
 			{
-				if(techs.getPhilosophy() && objects.getProduction() >= 80 && objects.getGold() >= 80 && objects.getFood() >= 40)
+				if(techs.getPhilosophy() && objects.getProduction() >= Constants.MONASTERY_PRODUCTION_COST
+						&& objects.getGold() >= Constants.MONASTERY_GOLD_COST && objects.getFood() >= Constants.MONASTERY_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 2 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER2_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(80);
-						objects.loseGold(80);
-						objects.loseFood(40);
+						objects.loseProduction(Constants.MONASTERY_PRODUCTION_COST);
+						objects.loseGold(Constants.MONASTERY_GOLD_COST);
+						objects.loseFood(Constants.MONASTERY_FOOD_COST);
 						objects.setMonasteries();
 						totalMonasteries.setText("Monasteries: " + objects.getMonasteries());
-						objects.setUsedLand(3);
+						objects.setUsedLand(Constants.TIER2_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Philosophy, 80 Production, 80 Gold, and 40 Food to build a Monastery.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Philosophy, " + Constants.MONASTERY_PRODUCTION_COST + 
+							" Production, " + Constants.MONASTERY_GOLD_COST + " Gold, and " + Constants.MONASTERY_FOOD_COST + 
+							" Food to build a Monastery.",
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildTheater)
 			{
-				if(techs.getDrama() && objects.getProduction() >= 400 && objects.getGold() >= 400 && objects.getFood() >= 200)
+				if(techs.getDrama() && objects.getProduction() >= Constants.THEATER_PRODUCTION_COST
+						&& objects.getGold() >= Constants.THEATER_GOLD_COST && objects.getFood() >= Constants.THEATER_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 4 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER3_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(400);
-						objects.loseGold(400);
-						objects.loseFood(200);
+						objects.loseProduction(Constants.THEATER_PRODUCTION_COST);
+						objects.loseGold(Constants.THEATER_GOLD_COST);
+						objects.loseFood(Constants.THEATER_FOOD_COST);
 						objects.setTheaters();
 						totalTheaters.setText("Theaters: " + objects.getTheaters());
-						objects.setUsedLand(5);
+						objects.setUsedLand(Constants.TIER3_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Drama, 400 Production, 400 Gold, and 200 Food to build a Theater.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Drama, " + Constants.THEATER_PRODUCTION_COST + 
+							" Production, " + Constants.THEATER_GOLD_COST + " Gold, and " + Constants.THEATER_FOOD_COST + " Food to build a Theater.",
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			if(source == buildBroadcastTower)
 			{
-				if(techs.getRadio() && objects.getProduction() >= 1600 && objects.getGold() >= 1600 && objects.getFood() >= 800)
+				if(techs.getRadio() && objects.getProduction() >= Constants.BROADCAST_TOWER_PRODUCTION_COST
+						&& objects.getGold() >= Constants.BROADCAST_TOWER_GOLD_COST && objects.getFood() >= Constants.BROADCAST_TOWER_FOOD_COST)
 				{
-					if(objects.getUsedLand() + 9 < objects.getTotalLand())
+					if(objects.getUsedLand() + Constants.TIER4_LAND <= objects.getTotalLand())
 					{
-						objects.loseProduction(1600);
-						objects.loseGold(1600);
-						objects.loseFood(800);
+						objects.loseProduction(Constants.BROADCAST_TOWER_PRODUCTION_COST);
+						objects.loseGold(Constants.BROADCAST_TOWER_GOLD_COST);
+						objects.loseFood(Constants.BROADCAST_TOWER_FOOD_COST);
 						objects.setBroadcastTowers();
 						totalBroadcastTowers.setText("Broadcast Towers: " + objects.getBroadcastTowers());
-						objects.setUsedLand(10);
+						objects.setUsedLand(Constants.TIER4_LAND);
 						landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
 					}
 					else
-						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "You need more land. Gain culture or win battles to grow your borders.",
+								"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 				}
 				else
-					JOptionPane.showMessageDialog(null, "You need Radio, 1600 Production, 1600 Gold, and 800 Food to build a Broadcast Tower.", "Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "You need Radio, " + Constants.BROADCAST_TOWER_PRODUCTION_COST + 
+							" Production, " + Constants.BROADCAST_TOWER_GOLD_COST + " Gold, and " + Constants.BROADCAST_TOWER_FOOD_COST + 
+							" Food to build a Broadcast Tower.", 
+							"Requirements Not Met", JOptionPane.INFORMATION_MESSAGE);
 			}
 			
 			
@@ -1364,13 +1484,14 @@ public class GUI extends JFrame
 			//loss means destruction of entire army, win means land gain
 			if(source == invadeOutpost)
 			{
-				int difference = objects.getMilitaryStrength() - 15;
+				int difference = objects.getMilitaryStrength() - Constants.OUTPOST_STRENGTH;
 				if(difference > 0)
 				{
-					JOptionPane.showMessageDialog(null, "You won! You gained 2 Land.", "Battle Results", JOptionPane.INFORMATION_MESSAGE);
-					objects.setTotalLand(2);
+					JOptionPane.showMessageDialog(null, "You won! You gained " + Constants.OUTPOST_LAND + "Land.", 
+							"Battle Results", JOptionPane.INFORMATION_MESSAGE);
+					objects.setTotalLand(Constants.OUTPOST_LAND);
 					landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
-					objects.loseMilitaryStrength(15);
+					objects.loseMilitaryStrength(Constants.OUTPOST_STRENGTH);
 					strength.setText("Military Strength: " + objects.getMilitaryStrength());
 				}
 				else
@@ -1382,13 +1503,14 @@ public class GUI extends JFrame
 			}
 			if(source == invadeTribe)
 			{
-				int difference = objects.getMilitaryStrength() - 50;
+				int difference = objects.getMilitaryStrength() - Constants.TRIBE_STRENGTH;
 				if(difference > 0)
 				{
-					JOptionPane.showMessageDialog(null, "You won! You gained 5 Land.", "Battle Results", JOptionPane.INFORMATION_MESSAGE);
-					objects.setTotalLand(5);
+					JOptionPane.showMessageDialog(null, "You won! You gained " + Constants.TRIBE_LAND + " Land.", 
+							"Battle Results", JOptionPane.INFORMATION_MESSAGE);
+					objects.setTotalLand(Constants.TRIBE_LAND);
 					landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
-					objects.loseMilitaryStrength(50);
+					objects.loseMilitaryStrength(Constants.TRIBE_STRENGTH);
 					strength.setText("Military Strength: " + objects.getMilitaryStrength());
 				}
 					
@@ -1402,13 +1524,14 @@ public class GUI extends JFrame
 			}
 			if(source == invadeVillage)
 			{
-				int difference = objects.getMilitaryStrength() - 500;
+				int difference = objects.getMilitaryStrength() - Constants.VILLAGE_STRENGTH;
 				if(difference > 0)
 				{
-					JOptionPane.showMessageDialog(null, "You won! You gained 25 Land.", "Battle Results", JOptionPane.INFORMATION_MESSAGE);
-					objects.setTotalLand(25);
+					JOptionPane.showMessageDialog(null, "You won! You gained " + Constants.VILLAGE_LAND + " Land.", 
+							"Battle Results", JOptionPane.INFORMATION_MESSAGE);
+					objects.setTotalLand(Constants.VILLAGE_LAND);
 					landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
-					objects.loseMilitaryStrength(500);
+					objects.loseMilitaryStrength(Constants.VILLAGE_STRENGTH);
 					strength.setText("Military Strength: " + objects.getMilitaryStrength());
 				}
 					
@@ -1422,13 +1545,14 @@ public class GUI extends JFrame
 			}
 			if(source == invadeTown)
 			{
-				int difference = objects.getMilitaryStrength() - 5000;
+				int difference = objects.getMilitaryStrength() - Constants.TOWN_STRENGTH;
 				if(difference > 0)
 				{
-					JOptionPane.showMessageDialog(null, "You won! You gained 50 Land.", "Battle Results", JOptionPane.INFORMATION_MESSAGE);
-					objects.setTotalLand(50);
+					JOptionPane.showMessageDialog(null, "You won! You gained " + Constants.TOWN_LAND + " Land.", 
+							"Battle Results", JOptionPane.INFORMATION_MESSAGE);
+					objects.setTotalLand(Constants.TOWN_LAND);
 					landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
-					objects.loseMilitaryStrength(5000);
+					objects.loseMilitaryStrength(Constants.TOWN_STRENGTH);
 					strength.setText("Military Strength: " + objects.getMilitaryStrength());
 				}
 					
@@ -1442,13 +1566,14 @@ public class GUI extends JFrame
 			}
 			if(source == invadeCity)
 			{
-				int difference = objects.getMilitaryStrength() - 25000;
+				int difference = objects.getMilitaryStrength() - Constants.CITY_STRENGTH;
 				if(difference > 0)
 				{
-					JOptionPane.showMessageDialog(null, "You won! You gained 100 Land.", "Battle Results", JOptionPane.INFORMATION_MESSAGE);
-					objects.setTotalLand(100);
+					JOptionPane.showMessageDialog(null, "You won! You gained " + Constants.CITY_LAND + " Land.", 
+							"Battle Results", JOptionPane.INFORMATION_MESSAGE);
+					objects.setTotalLand(Constants.CITY_LAND);
 					landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
-					objects.loseMilitaryStrength(25000);
+					objects.loseMilitaryStrength(Constants.CITY_STRENGTH);
 					strength.setText("Military Strength: " + objects.getMilitaryStrength());
 				}
 					
@@ -1462,13 +1587,14 @@ public class GUI extends JFrame
 			}
 			if(source == invadeCityState)
 			{
-				int difference = objects.getMilitaryStrength() - 100000;
+				int difference = objects.getMilitaryStrength() - Constants.CITY_STATE_STRENGTH;
 				if(difference > 0)
 				{
-					JOptionPane.showMessageDialog(null, "You won! You gained 250 Land.", "Battle Results", JOptionPane.INFORMATION_MESSAGE);
-					objects.setTotalLand(250);
+					JOptionPane.showMessageDialog(null, "You won! You gained " + Constants.CITY_STATE_LAND + " Land.", 
+							"Battle Results", JOptionPane.INFORMATION_MESSAGE);
+					objects.setTotalLand(Constants.CITY_STATE_LAND);
 					landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
-					objects.loseMilitaryStrength(100000);
+					objects.loseMilitaryStrength(Constants.CITY_STATE_STRENGTH);
 					strength.setText("Military Strength: " + objects.getMilitaryStrength());
 				}
 					
@@ -1482,13 +1608,14 @@ public class GUI extends JFrame
 			}
 			if(source == invadeCountry)
 			{
-				int difference = objects.getMilitaryStrength() - 400000;
+				int difference = objects.getMilitaryStrength() - Constants.COUNTRY_STRENGTH;
 				if(difference > 0)
 				{
-					JOptionPane.showMessageDialog(null, "You won! You gained 500 Land.", "Battle Results", JOptionPane.INFORMATION_MESSAGE);
-					objects.setTotalLand(500);
+					JOptionPane.showMessageDialog(null, "You won! You gained " + Constants.COUNTRY_LAND + " Land.", 
+							"Battle Results", JOptionPane.INFORMATION_MESSAGE);
+					objects.setTotalLand(Constants.COUNTRY_LAND);
 					landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
-					objects.loseMilitaryStrength(400000);
+					objects.loseMilitaryStrength(Constants.COUNTRY_STRENGTH);
 					strength.setText("Military Strength: " + objects.getMilitaryStrength());
 				}
 					
@@ -1502,13 +1629,14 @@ public class GUI extends JFrame
 			}
 			if(source == invadeEmpire)
 			{
-				int difference = objects.getMilitaryStrength() - 1000000;
+				int difference = objects.getMilitaryStrength() - Constants.EMPIRE_STRENGTH;
 				if(difference > 0)
 				{
-					JOptionPane.showMessageDialog(null, "You won! You gained 1000 Land.", "Battle Results", JOptionPane.INFORMATION_MESSAGE);
-					objects.setTotalLand(1000);
+					JOptionPane.showMessageDialog(null, "You won! You gained " + Constants.EMPIRE_LAND + " Land.", 
+							"Battle Results", JOptionPane.INFORMATION_MESSAGE);
+					objects.setTotalLand(Constants.EMPIRE_LAND);
 					landUse.setText("Land: " + objects.getUsedLand() + "/" + objects.getTotalLand());
-					objects.loseMilitaryStrength(1000000);
+					objects.loseMilitaryStrength(Constants.EMPIRE_STRENGTH);
 					strength.setText("Military Strength: " + objects.getMilitaryStrength());
 				}
 					
